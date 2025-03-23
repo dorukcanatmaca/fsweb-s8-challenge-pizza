@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import workintech from '/workintech.svg'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import './App.css'
+import Anasayfa from './Anasayfa.jsx';
+import SiparisFormu from './SiparisFormu.jsx';
+import SiparisOnayi from './SiparisOnayi.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
 
   return (
     <>
-      <div>
-        <a href="https://github.com/Workintech/fsweb-s7-challenge-pizza" target="_blank">
-          <img src={workintech} className="logo" alt="Workintech logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Workintech ilk commit + 🍕</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Absolute Acı Pizza sayısı {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Workintech or Pizza logos to learn more
-      </p>
+      <Switch>
+        <Route path="/" exact>
+          <Anasayfa />
+        </Route>
+        <Route path="/order">
+          <SiparisFormu />
+        </Route>
+        <Route path="/success">
+          <SiparisOnayi />
+        </Route>
+      </Switch>
     </>
-  )
+  );
 }
-
-export default App
