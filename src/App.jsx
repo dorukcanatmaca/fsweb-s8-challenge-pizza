@@ -2,10 +2,9 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import './App.css'
 import Anasayfa from './Anasayfa.jsx';
-import SiparisFormu from './SiparisFormu.jsx';
+import PizzaForm from './PizzaForm.jsx';
 import SiparisOnayi from './SiparisOnayi.jsx';
-import Formv2 from './Formv2.jsx';
-import Formv3 from './Formv3.jsx';
+
 
 export default function App() {
 
@@ -16,13 +15,7 @@ export default function App() {
           <Anasayfa />
         </Route>
         <Route path="/order">
-          <SiparisFormu />
-        </Route>
-        <Route path="/formv2">
-          <Formv2 />
-        </Route>
-        <Route path="/formv3">
-          <Formv3 />
+          <PizzaForm />
         </Route>
         <Route path="/success">
           <SiparisOnayi />

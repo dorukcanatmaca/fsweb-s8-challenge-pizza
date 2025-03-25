@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { Form, FormGroup, FormText, Label, Input, Button, Col } from 'reactstrap';
+import { Form, FormGroup, FormText, FormFeedback, Label, Input, Button, Col } from 'reactstrap';
 import './SiparisFormu.css';
 import logo from "../images/iteration-1-images/logo.svg";
 
@@ -11,8 +11,8 @@ const malzemeListesi = ['pepperoni', 'domates', 'biber', 'sosis', 'misir', 'sucu
 const errorMessages = {
     boyut: '',
     hamur: '',
-    malzemeler: '',
-    isim: '',
+    malzemeler: 'Lütfen en az 4, en fazla 10 malzeme seçiniz.',
+    isim: 'Lütfen isminizi tam olarak giriniz.',
     not: '',
     sayi: '',
 };
@@ -35,7 +35,7 @@ const initialErrors = {
     sayi: true,
 };
 
-export default function Formv3() {
+export default function PizzaForm() {
     const [formData, setFormData] = useState(initialForm);
 
     const [isValid, setIsValid] = useState(false);
@@ -79,12 +79,16 @@ export default function Formv3() {
                 setFormData({ ...formData, malzemeler: val });
                 if (val.length >= 4 && val.length <= 10) {
                     setErrors({ ...errors, malzemeler: false });
+                } else {
+                    setErrors({ ...errors, malzemeler: true });
                 }
             } else {
                 const val = [...formData.malzemeler, value];
                 setFormData({ ...formData, malzemeler: val });
                 if (val.length >= 4 && val.length <= 10) {
                     setErrors({ ...errors, malzemeler: false });
+                } else {
+                    setErrors({ ...errors, malzemeler: true });
                 }
             }
         } else if (type === "button") {
@@ -117,7 +121,7 @@ export default function Formv3() {
 
         if (name === 'isim') {
 
-            if (value.length >= 4) {
+            if (value.length >= 3) {
                 setErrors({ ...errors, isim: false });
             } else {
                 setErrors({ ...errors, isim: true });
@@ -224,6 +228,9 @@ export default function Formv3() {
                                     // </>
                                 );
                             })}
+                            {errors.malzemeler && (
+                                <FormFeedback>{errorMessages.malzemeler}</FormFeedback>
+                            )}
                         </FormGroup>
 
                         {/* <FormGroup className='form-ingredients-checkbox-2'>
@@ -255,7 +262,10 @@ export default function Formv3() {
 
                         <FormGroup className='username'>
                             <Label for="username">İsminiz</Label>
-                            <Input type="text" id="username" name="isim" value={formData.isim} onChange={handleChange} />
+                            <Input type="text" id="username" name="isim" value={formData.isim} onChange={handleChange} invalid={errors.isim} />
+                            {errors.isim && (
+                                <FormFeedback>{errorMessages.isim}</FormFeedback>
+                            )}
                         </FormGroup>
 
                         {/* <FormGroup className='order-notes'>
