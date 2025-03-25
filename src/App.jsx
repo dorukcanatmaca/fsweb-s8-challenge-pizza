@@ -4,6 +4,8 @@ import './App.css'
 import Anasayfa from './Anasayfa.jsx';
 import SiparisFormu from './SiparisFormu.jsx';
 import SiparisOnayi from './SiparisOnayi.jsx';
+import Formv2 from './Formv2.jsx';
+import Formv3 from './Formv3.jsx';
 
 export default function App() {
 
@@ -15,6 +17,12 @@ export default function App() {
         </Route>
         <Route path="/order">
           <SiparisFormu />
+        </Route>
+        <Route path="/formv2">
+          <Formv2 />
+        </Route>
+        <Route path="/formv3">
+          <Formv3 />
         </Route>
         <Route path="/success">
           <SiparisOnayi />

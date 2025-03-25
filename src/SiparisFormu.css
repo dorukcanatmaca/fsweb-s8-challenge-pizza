@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'MyFont2';
+    src: local('MyFont2'), url(./fonts/Barlow/Barlow-Medium.ttf) format('truetype');
+}
+
+
+body {
+    background-image: none;
+    margin-top: 10vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #CE2829;
+    justify-content: center;
+    align-items: center;
+
+}
+
+img {
+    max-width: 20%;
+    margin-top: 3vh;
+}
+
+header p {
+    color: #FAF7F2;
+}
+
+div.pizza-name p {
+    color: #292929;
+    font-size: 2em;
+}
+
+div.pizza-specs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+div.pizza-price p {
+    color: #292929;
+}
+
+div.pizza-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+div.pizza-details p {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: #5F5F5F;
+}
+
+div.pizza-explanation p {
+    color: #5F5F5F;
+}
