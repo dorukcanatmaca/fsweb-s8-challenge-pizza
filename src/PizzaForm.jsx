@@ -28,7 +28,7 @@ const initialForm = {
 
 const initialErrors = {
     boyut: true,
-    hamur: true,
+    hamur: false,
     malzemeler: true,
     isim: true,
     not: false,
@@ -55,20 +55,6 @@ export default function PizzaForm() {
     function toTitleCase(str) {
         return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
     }
-
-    // const handleDecrease = () => {
-    //     let val = formData.sayi;
-    //     if (val >= 1) {
-    //         val = val - 1;
-    //         setFormData({ ...formData, sayi: val });
-    //     }
-    // }
-
-    // const handleIncrease = () => {
-    //     let val = formData.sayi;
-    //     val = val + 1;
-    //     setFormData({ ...formData, sayi: val });
-    // }
 
     const handleChange = (event) => {
         let { name, value, type, id } = event.target;
@@ -117,8 +103,6 @@ export default function PizzaForm() {
             setErrors({ ...errors, [name]: false })
         }
 
-        console.log(formData);
-
         if (name === 'isim') {
 
             if (value.length >= 3) {
@@ -128,25 +112,8 @@ export default function PizzaForm() {
             }
         }
 
-        if (name === 'hamur') {
-            setErrors({ ...errors, hamur: false });
-        }
-
-        // if (formData.malzemeler.length >= 4 && formData.malzemeler.length <= 10) {
-        //     setErrors({ ...errors, malzemeler: false });
-        // } else {
-        //     setErrors({ ...errors, malzemeler: true });
-        // }
-
-        // if (formData.boyut) {
-        //     setErrors({ ...errors, boyut: false });
-        // }
-
-
-        // if (formData.sayi >= 1) {
-        //     setErrors({ ...errors, sayi: false });
-        // } else {
-        //     setErrors({ ...errors, sayi: true });
+        // if (name === 'hamur') {
+        //     setErrors({ ...errors, hamur: false });
         // }
 
     }
@@ -206,8 +173,8 @@ export default function PizzaForm() {
                         <FormGroup className='form-dough'>
                             <Label for="dough">Hamur Seç</Label>
                             <Input type="select" id="dough" name="hamur" value={formData.hamur} onChange={handleChange}>
-                                <option value="ince">İnce Hamur</option>
                                 <option value="klasik">Klasik Hamur</option>
+                                <option value="ince">İnce Hamur</option>
                                 <option value="parmesanKenarInce">Parmesan Kenar İnce Hamur</option>
                                 <option value="parmesanKenarKlasik">Parmesan Kenar Klasik Hamur</option>
                             </Input>
@@ -222,43 +189,12 @@ export default function PizzaForm() {
                             {malzemeListesi.map((malzeme, index) => {
                                 return (
                                     <Label key={index}><Input type="checkbox" id={malzeme} name="ingredients" value={malzeme} checked={formData.malzemeler.includes(malzeme)} onChange={handleChange}></Input>{toTitleCase(malzeme)}</Label>
-                                    // <>
-                                    //     <Input type="checkbox" id={malzeme} name={malzeme} onChange={handleChange} />
-                                    //     <Label for={malzeme}>{toTitleCase(malzeme)}</Label>
-                                    // </>
                                 );
                             })}
                             {errors.malzemeler && (
                                 <FormFeedback>{errorMessages.malzemeler}</FormFeedback>
                             )}
                         </FormGroup>
-
-                        {/* <FormGroup className='form-ingredients-checkbox-2'>
-                                <Input type="checkbox" id="pepperoni" name="pepperoni" value={form.pepperoni} onChange={handleChange} />
-                                <Label for="pepperoni">Pepperoni</Label>
-                                <Input type="checkbox" id="domates" name="domates" value={form.domates} onChange={handleChange} />
-                                <Label for="domates">Domates</Label>
-                                <Input type="checkbox" id="biber" name="biber" value={form.biber} onChange={handleChange} />
-                                <Label for="biber">Biber</Label>
-                                <Input type="checkbox" id="sosis" name="sosis" value={form.sosis} onChange={handleChange} />
-                                <Label for="sosis">Sosis</Label>
-                                <Input type="checkbox" id="misir" name="misir" value={form.misir} onChange={handleChange} />
-                                <Label for="misir">Mısır</Label>
-                                <Input type="checkbox" id="sucuk" name="sucuk" value={form.sucuk} onChange={handleChange} />
-                                <Label for="sucuk">Sucuk</Label>
-                                <Input type="checkbox" id="jambon" name="jambon" value={form.jambon} onChange={handleChange} />
-                                <Label for="jambon">Jambon</Label>
-                                <Input type="checkbox" id="ananas" name="ananas" value={form.ananas} onChange={handleChange} />
-                                <Label for="ananas">Ananas</Label>
-                                <Input type="checkbox" id="jalapeno" name="jalapeno" value={form.jalapeno} onChange={handleChange} />
-                                <Label for="jalapeno">Jalapeno</Label>
-                                <Input type="checkbox" id="kabak" name="kabak" value={form.kabak} onChange={handleChange} />
-                                <Label for="kabak">Kabak</Label>
-                                <Input type="checkbox" id="sogan" name="sogan" value={form.sogan} onChange={handleChange} />
-                                <Label for="sogan">Soğan</Label>
-                                <Input type="checkbox" id="sarimsak" name="sarimsak" value={form.sarimsak} onChange={handleChange} />
-                                <Label for="sarimsak">Sarımsak</Label>
-                            </FormGroup> */}
 
                         <FormGroup className='username'>
                             <Label for="username">İsminiz</Label>
