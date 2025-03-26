@@ -2,16 +2,16 @@ import './SiparisOnayi.css';
 import logo from "../images/iteration-1-images/logo.svg";
 import styled from 'styled-components';
 
-const StlSucdivgeneralwrapper = styled.div`
+const DivWrapper = styled.div`
     background-color: #CE2829;
     block-size: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: MyFont;
+    font-family: OnayFont;
 `;
 
-const StlSucdivlogocontainer = styled.div`
+const DivSub = styled.div`
     img {
     display: block;
     margin-top: 10vh;
@@ -22,10 +22,10 @@ const StlSucdivlogocontainer = styled.div`
     }
 `;
 
-const StlSuch1 = styled.h1`
+const Title = styled.h1`
     color: #FAF7F2;
     font-size: 4.7em;
-    font-family: MyFont;
+    font-family: OnayFont;
     font-weight: 100;
     text-align: center;
     margin-top: 30vh;
@@ -33,13 +33,13 @@ const StlSuch1 = styled.h1`
 
 export default function SiparisOnayi() {
     return (
-        <StlSucdivgeneralwrapper className="general-wrapper">
-            <StlSucdivlogocontainer className="logo-container">
+        <DivWrapper>
+            <DivSub>
                 <img src={logo} alt="logo" />
-            </StlSucdivlogocontainer>
-            <div className="text-container">
-                <StlSuch1>TEBRİKLER!<br></br>SİPARİŞİNİZ ALINDI!</StlSuch1>
+            </DivSub>
+            <div>
+                <Title>TEBRİKLER!<br></br>SİPARİŞİNİZ ALINDI!</Title>
             </div>
-        </StlSucdivgeneralwrapper>
+        </DivWrapper>
     )
 }

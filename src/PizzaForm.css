@@ -1,0 +1,4 @@
+@font-face {
+    font-family: 'FormFont';
+    src: local('FormFont'), url(./fonts/Barlow/Barlow-Medium.ttf) format('truetype');
+}

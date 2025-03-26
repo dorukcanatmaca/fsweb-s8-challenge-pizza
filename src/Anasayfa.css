@@ -1,4 +1,4 @@
 @font-face {
-    font-family: 'MyFont';
-    src: local('MyFont'), url(./fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf) format('truetype');
+    font-family: 'MainFont';
+    src: local('MainFont'), url(./fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf) format('truetype');
 }

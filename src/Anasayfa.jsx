@@ -3,15 +3,15 @@ import './Anasayfa.css';
 import logo from "../images/iteration-1-images/logo.svg";
 import styled from 'styled-components';
 
-const StlMainh1 = styled.h1`
+const Txt = styled.h1`
     color: #FAF7F2;
     font-size: 4.7em;
-    font-family: MyFont;
+    font-family: MainFont;
     font-weight: 275;
     text-align: center;
 `;
 
-const StlMainbtn = styled.button`
+const Buton = styled.button`
     background-color: #FDC913;
     border-radius: 27px;
     border: 1px solid transparent;
@@ -20,7 +20,7 @@ const StlMainbtn = styled.button`
     font-weight: 500;
 `;
 
-const StlMaindivgeneralwrapper = styled.div`
+const DivWrapper = styled.div`
     background-image: url("../images/iteration-1-images/home-banner.png");
     background-size: cover;
     margin: 0;
@@ -28,10 +28,10 @@ const StlMaindivgeneralwrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: MyFont;
+    font-family: MainFont;
 `;
 
-const StlMaindivlogocontainer = styled.div`
+const DivSub = styled.div`
     img {
     display: block;
     margin-top: 10vh;
@@ -44,20 +44,20 @@ const StlMaindivlogocontainer = styled.div`
 
 export default function Anasayfa() {
     return (
-        <StlMaindivgeneralwrapper className="general-wrapper">
-            <StlMaindivlogocontainer className="logo-container">
+        <DivWrapper>
+            <DivSub>
                 <img src={logo} alt="logo" />
-            </StlMaindivlogocontainer>
-            <div className="text-container">
-                <StlMainh1>KOD ACIKTIRIR<br></br>PİZZA, DOYURUR</StlMainh1>
+            </DivSub>
+            <div>
+                <Txt>KOD ACIKTIRIR<br></br>PİZZA, DOYURUR</Txt>
             </div>
-            <div className="button-container">
+            <div>
                 <Link to="/order">
-                    <StlMainbtn>
+                    <Buton>
                         ACIKTIM
-                    </StlMainbtn>
+                    </Buton>
                 </Link>
             </div>
-        </StlMaindivgeneralwrapper>
+        </DivWrapper>
     );
 }
